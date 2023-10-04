@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<exercises xmlns="http://eng.grammar/entity/exercise"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://eng.grammar/entity/exercise exercises.xsd"
+>
+	<exercise id="1">
+		<topicId>4</topicId>
+		<type>Translation</type>
+		<task>Вони обідають о 12 годині</task>
+		<answer>They have lunch at 12 o'clock</answer>
+	</exercise>
+	<exercise id="2">
+		<topicId>4</topicId>
+		<type>Translation</type>
+		<task>Ти любиш плавати?</task>
+		<answer>Do you like to swim?</answer>
+	</exercise>
+	<exercise id="3">
+		<topicId>4</topicId>
+		<type>Correct the mistake</type>
+		<task>Do he play football on Saturdays?</task>
+		<answer>Does he play football on Saturdays?</answer>
+	</exercise>
+	<exercise id="4">
+		<topicId>5</topicId>
+		<type>Translation</type>
+		<task>Я зараз дивлюся телевізор</task>
+		<answer>I am watching TV now</answer>
+	</exercise>
+	<exercise id="5">
+		<topicId>5</topicId>
+		<type>Correct the mistake</type>
+		<task>She is play the guitar now</task>
+		<answer>She is playing the guitar now</answer>
+	</exercise>
+	<exercise id="6">
+		<topicId>3</topicId>
+		<type>True/false</type>
+		<task>"To read" is a regular verb.</task>
+		<answer>False</answer>
+	</exercise>
+	<exercise id="7">
+		<topicId>3</topicId>
+		<type>True/false</type>
+		<task>"To drive" is an irregular verb.</task>
+		<answer>True</answer>
+	</exercise>
+</exercises>

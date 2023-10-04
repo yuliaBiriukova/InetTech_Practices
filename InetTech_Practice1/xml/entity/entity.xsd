@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://eng.grammar/entity"
+			xmlns:eng="http://eng.grammar/entity"
+			elementFormDefault="qualified"
+>
+	<xsd:complexType name="Entity">
+		<xsd:attribute name="id" type="eng:Id" use="required"/>
+		<xsd:attribute name="version" type="eng:Version" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:simpleType name="Id">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minExclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Version">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

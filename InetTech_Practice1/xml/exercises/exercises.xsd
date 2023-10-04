@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://eng.grammar/entity/exercise"
+  	xmlns:eng="http://eng.grammar/entity/exercise"
+	xmlns:ent="http://eng.grammar/entity"
+	elementFormDefault="qualified"
+>
+	<xsd:import namespace="http://eng.grammar/entity" schemaLocation="../entity/entity.xsd" />
+
+	<xsd:element name="exercises">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="exercise" type="eng:Exercise" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="Exercise">
+		<xsd:complexContent>
+			<xsd:extension base="ent:Entity">
+				<xsd:all>
+					<xsd:element name="topicId">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:integer">
+								<xsd:minExclusive value="0"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="type" type="eng:ExerciseType"/>
+					<xsd:element name="task">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="256"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="answer">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="256"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+				</xsd:all>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:simpleType name="ExerciseType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Translation" />
+			<xsd:enumeration value="True/false" />
+			<xsd:enumeration value="Correct the mistake" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+</xsd:schema>

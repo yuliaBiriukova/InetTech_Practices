@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<levels xmlns="http://eng.grammar/entity/level"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://eng.grammar/entity/level levels.xsd"
+>
+	<level id="1">
+		<code>A1</code>
+		<name>Beginner</name>
+	</level>
+	<level id="2">
+		<code>A2</code>
+		<name>Pre-Intermediate</name>
+	</level>
+	<level id="3">
+		<code>B1</code>
+		<name>Intermediate</name>
+	</level>
+	<level id="4">
+		<code>B2</code>
+		<name>Upper-Intermediate</name>
+</level>
+	<level id="5">
+		<code>C1</code>
+		<name>Advanced</name>
+	</level>
+</levels>
