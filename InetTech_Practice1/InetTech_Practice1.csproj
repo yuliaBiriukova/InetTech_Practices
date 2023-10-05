@@ -8,27 +8,46 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="xml\entity\entity.xsd">
+    <None Update="static\css\styles.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="xml\exercises\exercises.xml">
+    <None Update="static\xml\completedTopics\completedTopics.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="xml\exercises\exercises.xsd">
+    <None Update="static\xml\completedTopics\completedTopics.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="xml\levels\levels.xml">
+    <None Update="static\xml\entity\entity.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="xml\levels\levels.xsd">
+    <None Update="static\xml\exercises\exercises.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="xml\topics\topics.xml">
+    <None Update="static\xml\exercises\exercises.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="xml\topics\topics.xsd">
+    <None Update="static\xml\levels\levels.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="static\xml\levels\levels.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="static\xml\topics\topics.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="static\xml\topics\topics.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="static\xslt\exercises.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="static\xslt\levels.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="static\html\" />
   </ItemGroup>
 
 </Project>

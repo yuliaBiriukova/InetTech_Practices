@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<completedTopics xmlns="http://eng.grammar/entity/completedTopic"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://eng.grammar/entity/completedTopic completedTopics.xsd"
+>
+	<completedTopic id="1">
+		<topicId>3</topicId>
+		<userId>1</userId>
+		<percentage>100</percentage>
+	</completedTopic>
+	<completedTopic id="2">
+		<topicId>4</topicId>
+		<userId>1</userId>
+		<percentage>66</percentage>
+	</completedTopic>
+	<completedTopic id="3">
+		<topicId>5</topicId>
+		<userId>1</userId>
+		<percentage>50</percentage>
+	</completedTopic>
+	<completedTopic id="1">
+		<topicId>3</topicId>
+		<userId>2</userId>
+		<percentage>100</percentage>
+	</completedTopic>
+	<completedTopic id="2">
+		<topicId>4</topicId>
+		<userId>2</userId>
+		<percentage>33</percentage>
+	</completedTopic>
+	<completedTopic id="3">
+		<topicId>5</topicId>
+		<userId>2</userId>
+		<percentage>100</percentage>
+	</completedTopic>
+</completedTopics>
