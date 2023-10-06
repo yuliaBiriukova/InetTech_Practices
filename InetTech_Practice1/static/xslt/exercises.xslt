@@ -7,7 +7,7 @@
 		<html>
 			<head>
 				<title>English grammar exercises</title>
-				<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+				<link rel="stylesheet" type="text/css" href="./css/styles.css"/>
 			</head>
 			<body>
 				<h1 class="title">English grammar exercises</h1>

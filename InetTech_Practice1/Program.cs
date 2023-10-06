@@ -15,14 +15,14 @@ XmlValidator.ValidateCompletedTopics();
 
 Console.WriteLine("\nTransforming XML to HTML using XSLT:");
 
-var levelsXmlFilePath = "xml/levels/levels.xml";
-var levelsXsltFilePath = "xslt/levels.xslt";
-var levelsHtmlFilePath = "levels.html";
+var levelsXmlFilePath = "static/xml/levels/levels.xml";
+var levelsXsltFilePath = "static/xslt/levels.xslt";
+var levelsHtmlFilePath = "static/html/levels.html";
 
 XsltTransformer.TransformXmlToHtml(levelsXmlFilePath, levelsXsltFilePath, levelsHtmlFilePath);
 
-var exercisesXmlFilePath = "xml/exercises/exercises.xml";
-var exercisesXsltFilePath = "xslt/exercises.xslt";
-var exercisesHtmlFilePath = "exercises.html";
+var exercisesXmlFilePath = "static/xml/exercises/exercises.xml";
+var exercisesXsltFilePath = "static/xslt/exercises.xslt";
+var exercisesHtmlFilePath = "static/html/exercises.html";
 
 XsltTransformer.TransformXmlToHtml(exercisesXmlFilePath, exercisesXsltFilePath, exercisesHtmlFilePath);

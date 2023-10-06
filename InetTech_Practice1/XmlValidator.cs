@@ -7,39 +7,39 @@ internal class XmlValidator
 {
     public static void ValidateLevels()
     {
-        var levelsXmlFilePath = "xml/levels/levels.xml";
-        var levelsXsdFilePath = "xml/levels/levels.xsd";
+        var levelsXmlFilePath = "static/xml/levels/levels.xml";
+        var levelsXsdFilePath = "static/xml/levels/levels.xsd";
 
         ValidateXml(levelsXmlFilePath, levelsXsdFilePath);
     }
 
     public static void ValidateTopics()
     {
-        var topicsXmlFilePath = "xml/topics/topics.xml";
-        var topicsXsdFilePath = "xml/topics/topics.xsd";
+        var topicsXmlFilePath = "static/xml/topics/topics.xml";
+        var topicsXsdFilePath = "static/xml/topics/topics.xsd";
 
         ValidateXml(topicsXmlFilePath, topicsXsdFilePath);
     }
 
     public static void ValidateExercises()
     {
-        var exercisesXmlFilePath = "xml/exercises/exercises.xml";
-        var exercisesXsdFilePath = "xml/exercises/exercises.xsd";
+        var exercisesXmlFilePath = "static/xml/exercises/exercises.xml";
+        var exercisesXsdFilePath = "static/xml/exercises/exercises.xsd";
 
         ValidateXml(exercisesXmlFilePath, exercisesXsdFilePath);
     }
 
     public static void ValidateCompletedTopics()
     {
-        var completedTopicsXmlFilePath = "xml/completedTopics/completedTopics.xml";
-        var completedTopicsXsdFilePath = "xml/completedTopics/completedTopics.xsd";
+        var completedTopicsXmlFilePath = "static/xml/completedTopics/completedTopics.xml";
+        var completedTopicsXsdFilePath = "static/xml/completedTopics/completedTopics.xsd";
 
         ValidateXml(completedTopicsXmlFilePath, completedTopicsXsdFilePath);
     }
 
     private static void ValidateXml(string xmlFilePath, string xsdFilePath)
     {
-        var entityXsdFilePath = "xml/entity/entity.xsd";
+        var entityXsdFilePath = "static/xml/entity/entity.xsd";
 
         XmlReader xmlReader = null;
 
