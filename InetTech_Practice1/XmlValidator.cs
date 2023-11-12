@@ -29,14 +29,6 @@ internal class XmlValidator
         ValidateXml(exercisesXmlFilePath, exercisesXsdFilePath);
     }
 
-    public static void ValidateCompletedTopics()
-    {
-        var completedTopicsXmlFilePath = "static/xml/completedTopics/completedTopics.xml";
-        var completedTopicsXsdFilePath = "static/xml/completedTopics/completedTopics.xsd";
-
-        ValidateXml(completedTopicsXmlFilePath, completedTopicsXsdFilePath);
-    }
-
     private static void ValidateXml(string xmlFilePath, string xsdFilePath)
     {
         var entityXsdFilePath = "static/xml/entity/entity.xsd";

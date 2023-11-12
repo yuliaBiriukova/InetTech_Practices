@@ -10,9 +10,6 @@ XmlValidator.ValidateTopics();
 Console.Write("Validating exercises: ");
 XmlValidator.ValidateExercises();
 
-Console.Write("Validating completed topics: ");
-XmlValidator.ValidateCompletedTopics();
-
 Console.WriteLine("\nTransforming XML to HTML using XSLT:");
 
 var levelsXmlFilePath = "static/xml/levels/levels.xml";

@@ -11,12 +11,6 @@
     <None Update="static\css\styles.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="static\xml\completedTopics\completedTopics.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="static\xml\completedTopics\completedTopics.xsd">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="static\xml\entity\entity.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
