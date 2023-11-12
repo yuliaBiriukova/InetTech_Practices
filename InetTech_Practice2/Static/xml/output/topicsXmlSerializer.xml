@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://eng.grammar/entity/topic">
+  <topic id="1" version="1">
+    <level id="1" version="1">
+      <code>A1</code>
+      <name>Beginner</name>
+    </level>
+    <name>Nouns</name>
+    <content>Nouns are words that we use to name people, places, things, and ideas. Nouns have singular(one) and plural(more than one) forms. There are two types of nouns: common(book, dog) and proper nouns (London, John).</content>
+    <exercises>
+      <exercise id="1">
+        <topicId>1</topicId>
+        <type>Translation</type>
+        <task>task1</task>
+        <answer>answer1</answer>
+      </exercise>
+      <exercise id="2">
+        <topicId>1</topicId>
+        <type>True/false</type>
+        <task>task2</task>
+        <answer>answer2</answer>
+      </exercise>
+      <exercise id="3">
+        <topicId>1</topicId>
+        <type>Correct the mistake</type>
+        <task>task3</task>
+        <answer>answer3</answer>
+      </exercise>
+    </exercises>
+  </topic>
+  <topic id="2" version="1">
+    <level id="1">
+      <code>A1</code>
+      <name>Beginner</name>
+    </level>
+    <name>Pronouns</name>
+    <content>Pronouns are words that replace nouns in sentences. They help avoid repeating the same nouns, making sentences clearer and more concise. Pronouns: I, you, we, they, he, she, it.</content>
+    <exercises>
+      <exercise id="4">
+        <topicId>2</topicId>
+        <type>Translation</type>
+        <task>task1</task>
+        <answer>answer1</answer>
+      </exercise>
+      <exercise id="5">
+        <topicId>2</topicId>
+        <type>True/false</type>
+        <task>task2</task>
+        <answer>answer2</answer>
+      </exercise>
+      <exercise id="6">
+        <topicId>2</topicId>
+        <type>Correct the mistake</type>
+        <task>task3</task>
+        <answer>answer3</answer>
+      </exercise>
+    </exercises>
+  </topic>
+  <topic id="3" version="1">
+    <level id="1">
+      <code>A1</code>
+      <name>Beginner</name>
+    </level>
+    <name>Verbs: Regular, Irregular</name>
+    <content>Verbs are action words that show what someone or something is doing. Verbs types: regular, irregular. Regular verbs follow a pattern when changing tenses, usually by adding "-ed" to the base form to form the past tense. Irregular verbs don't follow a regular pattern when changing tenses. Their forms change in unique ways.</content>
+    <exercises>
+      <exercise id="7">
+        <topicId>3</topicId>
+        <type>True/false</type>
+        <task>"To read" is a regular verb.</task>
+        <answer>False</answer>
+      </exercise>
+      <exercise id="8">
+        <topicId>3</topicId>
+        <type>True/false</type>
+        <task>"To drive" is an irregular verb.</task>
+        <answer>True</answer>
+      </exercise>
+    </exercises>
+  </topic>
+  <topic id="4" version="1">
+    <level id="2">
+      <code>A2</code>
+      <name>Pre-Intermediate</name>
+    </level>
+    <name>Present Simple Tense</name>
+    <content>The Present Simple Tense is used to talk about things that happen regularly or facts that are always true. Formation: I, you, we, they + verb. He, she, it + verb + "-s/-es". We use Present Simple for habits, general truths, scheduled actions.</content>
+    <exercises>
+      <exercise id="9">
+        <topicId>4</topicId>
+        <type>Translation</type>
+        <task>Вони обідають о 12 годині</task>
+        <answer>They have lunch at 12 o'clock</answer>
+      </exercise>
+      <exercise id="10">
+        <topicId>4</topicId>
+        <type>Translation</type>
+        <task>Ти любиш плавати?</task>
+        <answer>Do you like to swim?</answer>
+      </exercise>
+      <exercise id="11">
+        <topicId>4</topicId>
+        <type>Correct the mistake</type>
+        <task>Do he play football on Saturdays?</task>
+        <answer>Does he play football on Saturdays?</answer>
+      </exercise>
+    </exercises>
+  </topic>
+  <topic id="5" version="1">
+    <level id="2">
+      <code>A2</code>
+      <name>Pre-Intermediate</name>
+    </level>
+    <name>Present Continuous Tense</name>
+    <content>We use the Present Continuous Tense to talk about actions happening now, at the moment of speaking. Formation: to be + verb + "-ing". We use Present Continious for actions happening now, planned actions, repeated actions, story-telling.</content>
+    <exercises>
+      <exercise id="12">
+        <topicId>5</topicId>
+        <type>Translation</type>
+        <task>Я зараз дивлюся телевізор</task>
+        <answer>I am watching TV now</answer>
+      </exercise>
+      <exercise id="13">
+        <topicId>5</topicId>
+        <type>Correct the mistake</type>
+        <task>She is play the guitar now</task>
+        <answer>She is playing the guitar now</answer>
+      </exercise>
+    </exercises>
+  </topic>
+  <topic id="6" version="1">
+    <level id="2">
+      <code>A2</code>
+      <name>Pre-Intermediate</name>
+    </level>
+    <name>Past Simple Tense</name>
+    <content>The Past Simple Tense is used to talk about completed acrions in the past. Formation: verb + "-ed" (reqular verbs),  2nd form of the verb (irregular verbs).</content>
+    <exercises>
+      <exercise id="14">
+        <topicId>6</topicId>
+        <type>Translation</type>
+        <task>task1</task>
+        <answer>answer1</answer>
+      </exercise>
+      <exercise id="15">
+        <topicId>6</topicId>
+        <type>True/false</type>
+        <task>task2</task>
+        <answer>answer2</answer>
+      </exercise>
+      <exercise id="16">
+        <topicId>6</topicId>
+        <type>Correct the mistake</type>
+        <task>task3</task>
+        <answer>answer3</answer>
+      </exercise>
+    </exercises>
+  </topic>
+</topics>

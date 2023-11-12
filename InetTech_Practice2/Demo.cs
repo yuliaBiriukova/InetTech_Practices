@@ -1,4 +1,5 @@
 ﻿using InetTech_Practice2.Parsers;
+using InetTech_Practice2.Transformers;
 using InetTech_Practice2.Utils;
 
 namespace InetTech_Practice2;
@@ -56,5 +57,13 @@ public class Demo
             var xmlWriterParser = new XmlWriterParser();
             xmlWriterParser.SaveTopics(topics, topicsXmlOutputFilePath, xsdFilePath);
         }
+    }
+
+    public static void XsltTransformerDemo(string xmlFilePath, string xsltFilePath, string outputFilePath)
+    {
+        Console.WriteLine("-------- XsltTransfromer demo --------");
+
+        var xsltTransformer = new XsltTransformer();
+        xsltTransformer.TransformXmlToHtml(xmlFilePath, xsltFilePath, outputFilePath);
     }
 }

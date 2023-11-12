@@ -5,7 +5,7 @@ namespace InetTech_Practice2.Transformers;
 
 public class XsltTransformer
 {
-    public static void TransformXmlToHtml(string xmlFilePath, string xsltFilePath, string outputFilePath)
+    public void TransformXmlToHtml(string xmlFilePath, string xsltFilePath, string outputFilePath)
     {
         try
         {
@@ -19,12 +19,12 @@ public class XsltTransformer
             {
                 xslt.Transform(xmlDoc, null, writer);
                 File.WriteAllText(outputFilePath, writer.ToString());
-                Console.WriteLine("Data is saved to file " + outputFilePath);
+                Console.WriteLine($"Data from {xmlFilePath} file is transformed to file {outputFilePath}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error: " + ex.Message);
+            Console.WriteLine("Error occured during XML transformation to HTML: " + ex);
         }
     }
 }

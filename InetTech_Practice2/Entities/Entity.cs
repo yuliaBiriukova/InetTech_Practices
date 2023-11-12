@@ -2,9 +2,6 @@
 
 namespace InetTech_Practice2.Classes;
 
-[XmlInclude(typeof(Exercise))]
-[XmlInclude(typeof(Level))]
-[XmlInclude(typeof(Topic))]
 [Serializable]
 [XmlType(Namespace = "http://eng.grammar/entity/topic")]
 public class Entity
