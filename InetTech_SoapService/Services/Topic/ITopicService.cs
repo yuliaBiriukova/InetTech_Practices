@@ -1,5 +1,4 @@
 ﻿using InetTech_SoapService.Entities;
-using InetTech_SoapService.Faults;
 using System.ServiceModel;
 
 namespace InetTech_SoapService.Services;
@@ -17,12 +16,10 @@ public interface ITopicService
     List<Topic> GetAllTopics();
 
     [OperationContract]
-    [FaultContract(typeof(TopicsEmptyFault))]
     List<Topic> GetTopicsByLevelId(int levelId);
 
     [OperationContract]
-    [FaultContract(typeof(TopicsEmptyFault))]
-    List<Topic> GetTopicsByName(string name);
+    Topic GetTopicById(int id);
 
     [OperationContract]
     bool UpdateTopic(Topic topic);

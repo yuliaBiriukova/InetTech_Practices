@@ -1,57 +1,150 @@
 ﻿using InetTech_SoapClient.Behaviors;
-using InetTech_SoapClient.Helpers;
-using ProfileService;
 using System.ServiceModel;
 using TopicService;
 
-/*using (var client = new ProfileServiceClient())
+using (var topicClient = new TopicServiceClient())
 {
     try
     {
-        var profile = await client.GetProfileAsync(1);
-        if (profile != null)
-        {
-            Console.WriteLine($"First Name: {profile.FirstName}");
-            Console.WriteLine($"Last Name: {profile.LastName}");
-            Console.WriteLine($"Email Address: {profile.Email}");
-            Console.WriteLine($"Home Address: {profile.HomeAddress}");
-        }
-    }
-    catch (FaultException<MissingProfileFault> ex)
-    {
-        Console.WriteLine($"Fault reason: {ex.Reason.ToString()}, fault code: {ex.Code.Name}, detail: {ex.Detail.Message}");
+        var securityToken = Guid.NewGuid();
+        var endpointBehavior = new AuthorizationEndpointBehavior(securityToken);
+
+        topicClient.Endpoint.EndpointBehaviors.Add(endpointBehavior);
+
+        var levelId = 1;
+        await GetLevelTopics(topicClient, levelId);
+
+        var newTopicId = await AddTopic(topicClient);
+
+        var newTopic = await GetTopicById(topicClient, newTopicId);
+
+        await GetLevelTopics(topicClient, levelId);
+
+        newTopic.name = "Pronouns Updated";
+
+        var updatedTopic = await UpdateTopic(topicClient, newTopic);
+
+        await DeleteTopic(topicClient, updatedTopic.id);
+
+        await GetLevelTopics(topicClient, levelId);
+
     }
     catch (FaultException ex)
     {
-        Console.WriteLine(ex.ToString());
+        Console.WriteLine($"Fault code: {ex.Code.Name}. Fault reason: {ex.Reason}.");
     }
     catch (Exception ex)
     {
         Console.WriteLine(ex.ToString());
     }
-}*/
+}
 
-using (var client = new TopicServiceClient())
+using (var topicClient = new TopicServiceClient())
 {
+    Console.WriteLine("\n------------------ No authorization demonstration ------------------\n");
+
     try
     {
-        var securityToken = Guid.Empty;
-        var endpointBehavior = new SecurityTokenEndpointBehavior(securityToken);
+        var endpointBehavior = new AuthorizationEndpointBehavior(null);
+        topicClient.Endpoint.EndpointBehaviors.Add(endpointBehavior);
 
-        client.Endpoint.EndpointBehaviors.Add(endpointBehavior);
-
-        var topics = await client.GetTopicsByLevelIdAsync(1);
-        if (topics != null)
-        {
-            Console.WriteLine($"Topics amount: {topics.Length}");
-        }
+        var levelId = 1;
+        await GetLevelTopics(topicClient, levelId);
     }
     catch (FaultException ex)
     {
-        Console.WriteLine($"Fault reason: {ex.Reason}, fault code: {ex.Code.Name}, detail: {ex.Message}");
+        Console.WriteLine($"Fault code: {ex.Code.Name}. Fault reason: {ex.Reason}.");
     }
     catch (Exception ex)
     {
         Console.WriteLine(ex.ToString());
+    }
+}
+
+using (var topicClient = new TopicServiceClient())
+{
+    Console.WriteLine("\n------------------ Faults demonstration ------------------\n");
+
+    try
+    {
+        var securityToken = Guid.NewGuid();
+        var endpointBehavior = new AuthorizationEndpointBehavior(securityToken);
+        topicClient.Endpoint.EndpointBehaviors.Add(endpointBehavior);
+
+        var topicId = 10;
+        var topic = await GetTopicById(topicClient, topicId);
+        
+    }
+    catch (FaultException ex)
+    {
+        Console.WriteLine($"Fault code: {ex.Code.Name}. Fault reason: {ex.Reason}.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.ToString());
+    }
+}
+
+static async Task GetLevelTopics(TopicServiceClient topicClient, int levelId)
+{
+    var topics = await topicClient.GetTopicsByLevelIdAsync(levelId);
+    if (topics != null)
+    {
+        Console.WriteLine($"Topics amount in level {levelId}: {topics.Length}\n");
+    }
+}
+
+static async Task<int> AddTopic(TopicServiceClient topicClient)
+{
+    var newTopic = new Topic()
+    {
+        name = "Pronouns",
+        level = new Level() { id = 1, code = "A1", name = "Beginner" },
+        content = "Pronouns are used instead of nouns.",
+        exercises = new Exercise[]
+            {
+                new Exercise() { id = 1, type = ExerciseType.Translation, task = "Їхній", answer = "Their"},
+                new Exercise() { id = 2, type = ExerciseType.Translation, task = "Вона", answer = "She"}
+            }
+    };
+
+    var newTopicId = await topicClient.AddTopicAsync(newTopic);
+    Console.WriteLine($"New topic id: {newTopicId}\n");
+
+    return newTopicId;
+}
+
+static async Task<Topic> GetTopicById(TopicServiceClient topicClient, int id)
+{
+    var topic = await topicClient.GetTopicByIdAsync(id);
+    Console.WriteLine($"New topic:\n" +
+        $"Name: {topic.name}\n" +
+        $"Level: {topic.level.code} {topic.level.name}\n" +
+        $"Content: {topic.content}\n");
+    return topic;
+}
+
+static async Task<Topic> UpdateTopic(TopicServiceClient topicClient, Topic topic)
+{
+    var isUpdated = await topicClient.UpdateTopicAsync(topic);
+    if (isUpdated)
+    {
+        Console.WriteLine($"Topic with id={topic.id} is updated.\n");
+    }
+
+    var updatedTopic = await topicClient.GetTopicByIdAsync(topic.id);
+    Console.WriteLine($"Updated topic:\n" +
+        $"Name: {topic.name}\n" +
+        $"Level: {topic.level.code} {topic.level.name}\n" +
+        $"Content: {topic.content}\n");
+    return updatedTopic;
+}
+
+static async Task DeleteTopic(TopicServiceClient topicClient, int id)
+{
+    var isDeleted = await topicClient.DeleteTopicAsync(id);
+    if (isDeleted)
+    {
+        Console.WriteLine($"Topic with id={id} is deleted.\n");
     }
 }

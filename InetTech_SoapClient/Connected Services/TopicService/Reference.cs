@@ -23,8 +23,6 @@ namespace TopicService
         
         private int idField;
         
-        private int versionField;
-        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int id
         {
@@ -35,19 +33,6 @@ namespace TopicService
             set
             {
                 this.idField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int version
-        {
-            get
-            {
-                return this.versionField;
-            }
-            set
-            {
-                this.versionField = value;
             }
         }
     }
@@ -99,8 +84,6 @@ namespace TopicService
         
         private string taskField;
         
-        private int topicIdField;
-        
         private TopicService.ExerciseType typeField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
@@ -126,19 +109,6 @@ namespace TopicService
             set
             {
                 this.taskField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int topicId
-        {
-            get
-            {
-                return this.topicIdField;
-            }
-            set
-            {
-                this.topicIdField = value;
             }
         }
         
@@ -238,28 +208,6 @@ namespace TopicService
         CorrectTheMistake = 2,
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TopicsEmptyFault", Namespace="http://schemas.datacontract.org/2004/07/InetTech_SoapService.Faults")]
-    public partial class TopicsEmptyFault : object
-    {
-        
-        private string MessageField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message
-        {
-            get
-            {
-                return this.MessageField;
-            }
-            set
-            {
-                this.MessageField = value;
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://eng.grammar/entity/topic", ConfigurationName="TopicService.ITopicService")]
     public interface ITopicService
@@ -275,14 +223,10 @@ namespace TopicService
         System.Threading.Tasks.Task<TopicService.Topic[]> GetAllTopicsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://eng.grammar/entity/topic/ITopicService/GetTopicsByLevelId", ReplyAction="http://eng.grammar/entity/topic/ITopicService/GetTopicsByLevelIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TopicService.TopicsEmptyFault), Action="http://eng.grammar/entity/topic/ITopicService/GetTopicsByLevelIdTopicsEmptyFaultF" +
-            "ault", Name="TopicsEmptyFault", Namespace="http://schemas.datacontract.org/2004/07/InetTech_SoapService.Faults")]
         System.Threading.Tasks.Task<TopicService.Topic[]> GetTopicsByLevelIdAsync(int levelId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://eng.grammar/entity/topic/ITopicService/GetTopicsByName", ReplyAction="http://eng.grammar/entity/topic/ITopicService/GetTopicsByNameResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(TopicService.TopicsEmptyFault), Action="http://eng.grammar/entity/topic/ITopicService/GetTopicsByNameTopicsEmptyFaultFaul" +
-            "t", Name="TopicsEmptyFault", Namespace="http://schemas.datacontract.org/2004/07/InetTech_SoapService.Faults")]
-        System.Threading.Tasks.Task<TopicService.Topic[]> GetTopicsByNameAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://eng.grammar/entity/topic/ITopicService/GetTopicById", ReplyAction="http://eng.grammar/entity/topic/ITopicService/GetTopicByIdResponse")]
+        System.Threading.Tasks.Task<TopicService.Topic> GetTopicByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://eng.grammar/entity/topic/ITopicService/UpdateTopic", ReplyAction="http://eng.grammar/entity/topic/ITopicService/UpdateTopicResponse")]
         System.Threading.Tasks.Task<bool> UpdateTopicAsync(TopicService.Topic topic);
@@ -358,9 +302,9 @@ namespace TopicService
             return base.Channel.GetTopicsByLevelIdAsync(levelId);
         }
         
-        public System.Threading.Tasks.Task<TopicService.Topic[]> GetTopicsByNameAsync(string name)
+        public System.Threading.Tasks.Task<TopicService.Topic> GetTopicByIdAsync(int id)
         {
-            return base.Channel.GetTopicsByNameAsync(name);
+            return base.Channel.GetTopicByIdAsync(id);
         }
         
         public System.Threading.Tasks.Task<bool> UpdateTopicAsync(TopicService.Topic topic)

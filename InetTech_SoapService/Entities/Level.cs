@@ -1,4 +1,4 @@
-﻿using InetTech_SoapService.Utils;
+﻿using InetTech_SoapService.Const;
 using System.Runtime.Serialization;
 
 namespace InetTech_SoapService.Entities;

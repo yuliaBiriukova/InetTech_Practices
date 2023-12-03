@@ -1,4 +1,4 @@
-﻿using InetTech_SoapService.Utils;
+﻿using InetTech_SoapService.Const;
 using System.Runtime.Serialization;
 
 namespace InetTech_SoapService.Entities;
@@ -26,7 +26,7 @@ public class Topic : Entity
             exercisesString += "\n" + exercise.ToString() ;
         }
 
-        return $"Topic #{Id} version {Version}\n" +
+        return $"Topic #{Id}\n" +
             $"{Level}\n" +
             $"Name: {Name}\n" +
             $"Content: {Content}\n\n" +

@@ -5,20 +5,20 @@ using System.ServiceModel.Dispatcher;
 
 namespace InetTech_SoapClient.Behaviors;
 
-public class SecurityTokenEndpointBehavior : IEndpointBehavior
+public class AuthorizationEndpointBehavior : IEndpointBehavior
 {
-    private readonly Guid securityToken;
+    private readonly Guid? authToken;
 
-    public SecurityTokenEndpointBehavior(Guid securityToken)
+    public AuthorizationEndpointBehavior(Guid? authToken)
     {
-        this.securityToken = securityToken;
+        this.authToken = authToken;
     }
 
     public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters) { }
 
     public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
     {
-        clientRuntime.ClientMessageInspectors.Add(new SecurityTokenMessageInspector(securityToken));
+        clientRuntime.ClientMessageInspectors.Add(new AuthorizationMessageInspector(authToken));
     }
 
     public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher) { }

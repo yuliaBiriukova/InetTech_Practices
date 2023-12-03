@@ -33,9 +33,9 @@ public class TopicRepository : ITopicRepository
         return Topics.GetAll().Where(t => t.Level.Id == levelId).ToList();
     }
 
-    public List<Topic> GetTopicsByName(string name)
+    public Topic? GetTopicById(int id)
     {
-        throw new NotImplementedException();
+        return Topics.GetById(id);
     }
 
     public bool UpdateTopic(Topic topic)
@@ -60,8 +60,8 @@ public class TopicRepository : ITopicRepository
                 Content = "Nouns (іменники) - це слова, якими ми називаємо людей, місця, речі та ідеї..",
                 Exercises = new List<Exercise>()
                 {
-                    new Exercise() { Id = 1, TopicId = 1, Type = ExerciseType.Translation, Task = "Будинок", Answer = "House" },
-                    new Exercise() { Id = 2, TopicId = 1, Type = ExerciseType.Translation, Task = "Брат", Answer = "Brother" }
+                    new Exercise() { Id = 1, Type = ExerciseType.Translation, Task = "Будинок", Answer = "House" },
+                    new Exercise() { Id = 2, Type = ExerciseType.Translation, Task = "Брат", Answer = "Brother" }
                 }
             },
             new Topic(){
@@ -71,8 +71,8 @@ public class TopicRepository : ITopicRepository
                 Content = "Verbs (дієслова) - це слова дії, які показують, що хтось або щось робить.",
                 Exercises = new List<Exercise>()
                 {
-                    new Exercise() { Id = 3, TopicId = 2, Type = ExerciseType.Translation, Task = "Ходити", Answer = "To go" },
-                    new Exercise() { Id = 4, TopicId = 2, Type = ExerciseType.Translation, Task = "Читати", Answer = "To read" }
+                    new Exercise() { Id = 1, Type = ExerciseType.Translation, Task = "Ходити", Answer = "To go" },
+                    new Exercise() { Id = 2, Type = ExerciseType.Translation, Task = "Читати", Answer = "To read" }
                 }
             },
             new Topic(){
@@ -83,15 +83,13 @@ public class TopicRepository : ITopicRepository
                 Exercises = new List<Exercise>()
                 {
                     new Exercise() {
-                        Id = 5,
-                        TopicId = 3,
+                        Id = 1,
                         Type = ExerciseType.Translation,
                         Task = "Я зараз дивлюся телевізор",
                         Answer = "I am watching TV now"
                     },
                     new Exercise() {
-                        Id = 6,
-                        TopicId = 3,
+                        Id = 2,
                         Type = ExerciseType.CorrectTheMistake,
                         Task = "She is play the guitar now",
                         Answer = "She is playing the guitar now"
@@ -106,15 +104,13 @@ public class TopicRepository : ITopicRepository
                 Exercises = new List<Exercise>()
                 {
                     new Exercise() {
-                        Id = 7,
-                        TopicId = 3,
+                        Id = 1,
                         Type = ExerciseType.Translation,
                         Task = "Вони обідають о 12 годині",
                         Answer = "They have lunch at 12 o'clock"
                     },
                     new Exercise() {
-                        Id = 8,
-                        TopicId = 3,
+                        Id = 2,
                         Type = ExerciseType.CorrectTheMistake,
                         Task = "Do he play football on Saturdays?",
                         Answer = "Does he play football on Saturdays?"

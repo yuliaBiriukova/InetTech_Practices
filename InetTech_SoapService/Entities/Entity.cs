@@ -1,4 +1,4 @@
-﻿using InetTech_SoapService.Utils;
+﻿using InetTech_SoapService.Const;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
@@ -9,7 +9,4 @@ public class Entity
 {
     [DataMember(IsRequired = true, Name = "id")]
     public int Id { get; set; }
-
-    [DataMember(Name = "version")]
-    public int Version { get; set; }
 }

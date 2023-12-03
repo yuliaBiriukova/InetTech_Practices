@@ -15,16 +15,10 @@ public class DbTable<T> : IDbTable<T> where T : Entity
         return Index;
     }
 
-    public void Clear()
-    {
-        Entities.Clear();
-        Index = 0;
-    }
-
     public bool Delete(int id)
     {
         Entities.RemoveAll(entity => entity.Id == id);
-        return Entities.Any(entity => entity.Id == id);
+        return !Entities.Any(entity => entity.Id == id);
     }
 
     public List<T> GetAll()
@@ -35,11 +29,6 @@ public class DbTable<T> : IDbTable<T> where T : Entity
     public T? GetById(int id)
     {
         return Entities.FirstOrDefault(entity => entity.Id == id);
-    }
-
-    public int Size()
-    {
-        return Entities.Count;
     }
 
     public bool Update(T entity)

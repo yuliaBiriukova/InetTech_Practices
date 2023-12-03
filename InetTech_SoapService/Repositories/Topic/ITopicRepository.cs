@@ -12,7 +12,7 @@ public interface ITopicRepository
 
     List<Topic> GetTopicsByLevelId(int levelId);
 
-    List<Topic> GetTopicsByName(string name);
+    Topic? GetTopicById(int id);
 
     bool UpdateTopic(Topic topic);
 }

@@ -1,5 +1,4 @@
 ﻿using InetTech_SoapService.Entities;
-using InetTech_SoapService.Faults;
 using InetTech_SoapService.Repositories;
 using System.ServiceModel;
 
@@ -34,16 +33,25 @@ public class TopicService : ITopicService
         var topics = _topicRepository.GetTopicsByLevelId(levelId);
         if(!topics.Any()) 
         {
-            throw new FaultException<TopicsEmptyFault>(new TopicsEmptyFault($"There are no topics with levelId={levelId}."),
-                new FaultReason($"Returned empty list of topics."),
-                new FaultCode("TopicsEmpty"), null);
+            throw new FaultException(
+                new FaultReason($"Returned empty list of topics; there are no topics with levelId={levelId}"),
+                new FaultCode("TopicsEmpty"), 
+                null);
         }
         return topics;
     }
 
-    public List<Topic> GetTopicsByName(string name)
+    public Topic GetTopicById(int id)
     {
-        throw new NotImplementedException();
+        var topic = _topicRepository.GetTopicById(id);
+        if(topic is null)
+        {
+            throw new FaultException(
+               new FaultReason($"Returned empty topic; there is no topic with id={id}"),
+               new FaultCode("MissingTopic"),
+               null);
+        }
+        return topic;
     }
 
     public bool UpdateTopic(Topic topic)
