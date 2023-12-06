@@ -1,0 +1,46 @@
+﻿using InetTech_RestService.Entities;
+
+namespace InetTech_RestService.DbTable;
+
+public class DbTable<T> : IDbTable<T> where T : Entity
+{
+    private List<T> Entities { get; set; } = new List<T>();
+    private int Index { get; set; } = 0;
+
+    public int Add(T entity)
+    {
+        Index++;
+        entity.Id = Index;
+        Entities.Add(entity);
+        return Index;
+    }
+
+    public bool Delete(int id)
+    {
+        Entities.RemoveAll(entity => entity.Id == id);
+        return !Entities.Any(entity => entity.Id == id);
+    }
+
+    public List<T> GetAll()
+    {
+        return Entities;
+    }
+
+    public T? GetById(int id)
+    {
+        return Entities.FirstOrDefault(entity => entity.Id == id);
+    }
+
+    public bool Update(T entity)
+    {
+        int index = Entities.FindIndex(item => item.Id == entity.Id);
+
+        if (index >= 0)
+        {
+            Entities[index] = entity;
+            return true;
+        }
+
+        return false;
+    }
+}
