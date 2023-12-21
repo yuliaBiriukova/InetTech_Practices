@@ -1,6 +1,6 @@
 ﻿using InetTech_SoapClient.Behaviors;
 using System.ServiceModel;
-using TopicService;
+using InetTech_SoapClient.TopicService;
 
 using (var topicClient = new TopicServiceClient())
 {

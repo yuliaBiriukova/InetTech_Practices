@@ -18,5 +18,5 @@ public class Topic : Entity
 
     [XmlArray("exercises")]
     [XmlArrayItem("exercise", IsNullable = false)]
-    public List<Exercise> Exercises { get; set; }
+    public List<Exercise>? Exercises { get; set; }
 }

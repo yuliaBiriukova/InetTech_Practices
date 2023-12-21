@@ -1,0 +1,58 @@
+﻿@model TopicUpdateViewModel
+@{
+    ViewBag.Title = "Add new topic";
+    var levels = new List<Level>()
+        {
+            new Level() { id = 1, code = "A1", name = "Beginner"},
+            new Level() { id = 2, code = "A2", name = "Pre-Intermediate"},
+            new Level() { id = 3, code = "B1", name = "Intermediate"},
+            new Level() { id = 4, code = "B2", name = "Upper-Intermediate"}
+        };
+
+    var levelsSelectList = new List<SelectListItem>();
+
+    foreach (var level in levels)
+    {
+        levelsSelectList.Add(new SelectListItem { Text = $"{level.code}: {level.name}", Value = level.id.ToString() });
+    }
+
+    var oldLevelId = Model.LevelId;
+}
+
+<h2 class="mt-4">Edit topic</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="form-label control-label mt-3"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LevelId" class="form-label control-label mt-3">Level</label>
+        <select class="form-select" asp-for="LevelId" asp-items="@levelsSelectList">
+            <option value="">Select level</option>
+        </select>
+        <span asp-validation-for="LevelId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Content" class="form-label control-label mt-3"></label>
+        <input asp-for="Content" class="form-control" />
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    @for (var i = 0; i < Model.Exercises.Count; i++)
+    {
+        @Html.HiddenFor(model => model.Exercises[i].id)
+        @Html.HiddenFor(model => model.Exercises[i].type)
+        @Html.HiddenFor(model => model.Exercises[i].task)
+        @Html.HiddenFor(model => model.Exercises[i].answer)
+    }
+
+    <div class="my-4">
+        <button type="submit" class="btn btn-primary">Update topic</button>
+    </div>
+
+    @Html.ActionLink("Back to levels", "Index", new { levelId = oldLevelId })
+</form>

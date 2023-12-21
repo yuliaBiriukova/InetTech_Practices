@@ -1,0 +1,54 @@
+﻿@model TopicAddViewModel
+@{
+    ViewBag.Title = "Add new topic";
+    var levels = new List<Level>()
+        {
+            new Level() { id = 1, code = "A1", name = "Beginner"},
+            new Level() { id = 2, code = "A2", name = "Pre-Intermediate"},
+            new Level() { id = 3, code = "B1", name = "Intermediate"},
+            new Level() { id = 4, code = "B2", name = "Upper-Intermediate"}
+        };
+    var levelsSelectList = new List<SelectListItem>();
+    foreach (var level in levels)
+    {
+        levelsSelectList.Add(new SelectListItem { Text = $"{level.code}: {level.name}", Value = level.id.ToString() });
+    }
+}
+
+<h2 class="mt-4">Add new topic</h2>
+
+<form method="post">
+    <div class="form-group mt-3">
+        <label asp-for="Name" class="form-label control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label asp-for="LevelId" class="form-label control-label">Level</label>
+        <select class="form-select" asp-for="LevelId" asp-items="@levelsSelectList">
+            <option value="">Select level</option>
+        </select>
+        <span asp-validation-for="LevelId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label asp-for="Content" class="form-label control-label"></label>
+        <input asp-for="Content" class="form-control" />
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="my-4">
+        <button type="submit" class="btn btn-primary">Add topic</button>
+    </div>
+
+    @if (Model?.LevelId != 0)
+    {
+        @Html.ActionLink("Back to levels", "Index", new { levelId = Model?.LevelId })
+    } 
+    else
+    {
+        @Html.ActionLink("Back to levels", "Index")
+    }
+
+</form>
