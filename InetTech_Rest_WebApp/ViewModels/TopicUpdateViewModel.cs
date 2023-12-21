@@ -6,6 +6,6 @@ namespace InetTech_Rest_WebApp.ViewModels
     {
         public int Id { get; set; }
 
-        public List<Exercise> Exercises { get; set; }
+        public List<Exercise>? Exercises { get; set; }
     }
 }

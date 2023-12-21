@@ -94,7 +94,7 @@ namespace InetTech_Soap_WebApp.Controllers
                 Name = topic.name,
                 Content = topic.content,
                 LevelId = topic.level.id,
-                Exercises = topic.exercises.ToList(),
+                Exercises = topic.exercises != null ? topic.exercises.ToList() : null,
             };
             return View(model);
         }
@@ -113,7 +113,7 @@ namespace InetTech_Soap_WebApp.Controllers
                 name = model.Name,
                 content = model.Content,
                 level = levels.FirstOrDefault(l => l.id == model.LevelId),
-                exercises = model.Exercises.ToArray(),
+                exercises = model.Exercises != null ? model.Exercises.ToArray() : null,
             };
 
             await _topicsClient.UpdateTopicAsync(updatedTopic);

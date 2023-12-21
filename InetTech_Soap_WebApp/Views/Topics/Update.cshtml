@@ -42,12 +42,15 @@
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
-    @for (var i = 0; i < Model.Exercises.Count; i++)
+    @if (Model.Exercises != null)
     {
-        @Html.HiddenFor(model => model.Exercises[i].id)
-        @Html.HiddenFor(model => model.Exercises[i].type)
-        @Html.HiddenFor(model => model.Exercises[i].task)
-        @Html.HiddenFor(model => model.Exercises[i].answer)
+        for (var i = 0; i < Model.Exercises.Count; i++)
+        {
+            @Html.HiddenFor(model => model.Exercises[i].id)
+            @Html.HiddenFor(model => model.Exercises[i].type)
+            @Html.HiddenFor(model => model.Exercises[i].task)
+            @Html.HiddenFor(model => model.Exercises[i].answer)
+        }
     }
 
     <div class="my-4">

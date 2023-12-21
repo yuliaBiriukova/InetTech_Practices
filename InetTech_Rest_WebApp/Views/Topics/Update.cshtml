@@ -41,13 +41,16 @@
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
 
-    @for (var i = 0; i < Model.Exercises.Count; i++)
+    @if(Model.Exercises != null)
     {
-        @Html.HiddenFor(model => model.Exercises[i].Id)
-        @Html.HiddenFor(model => model.Exercises[i].TopicId)
-        @Html.HiddenFor(model => model.Exercises[i].Type)
-        @Html.HiddenFor(model => model.Exercises[i].Task)
-        @Html.HiddenFor(model => model.Exercises[i].Answer)
+        for (var i = 0; i < Model.Exercises.Count; i++)
+        {
+            @Html.HiddenFor(model => model.Exercises[i].Id)
+            @Html.HiddenFor(model => model.Exercises[i].TopicId)
+            @Html.HiddenFor(model => model.Exercises[i].Type)
+            @Html.HiddenFor(model => model.Exercises[i].Task)
+            @Html.HiddenFor(model => model.Exercises[i].Answer)
+        }
     }
 
     <div class="my-4">

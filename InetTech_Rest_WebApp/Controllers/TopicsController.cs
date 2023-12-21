@@ -86,7 +86,7 @@ namespace InetTech_Rest_WebApp.Controllers
                 Name = topic.Name,
                 Content = topic.Content,
                 LevelId = topic.Level.Id,
-                Exercises = topic.Exercises.ToList(),
+                Exercises = topic.Exercises != null ? topic.Exercises.ToList() : null,
             };
             return View(model);
         }
